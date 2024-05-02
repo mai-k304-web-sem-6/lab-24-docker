@@ -1,0 +1,1 @@
+sudo docker run --name lab-24-docker-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=12345 -v lab-24-docker-mysql:/var/lib/lab-24-docker-mysql mysql
