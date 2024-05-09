@@ -3,7 +3,7 @@ import mysql.connector as connector
 
 app = Flask(__name__) # Создание нового экземпляр класса Flask, передав текущее имя модуля в качестве аргумента
 try: # Подключение к базе данных
-    connection = connector.connect(user="root", password="12345", host="172.23.0.2", database="test", port=32000)
+    connection = connector.connect(user="root", password="12345", host="mysql", database="test", port='3306')
 except connector.Error as e: # Обработка исключения
     print("Ошибка: Не удалось подключиться к базе данных")
     print(e) # Вывод ошибки в log сервера

@@ -5,20 +5,27 @@ services:
     image: mysql:latest
     container_name: lab-24-docker-mysql
     environment:
+      MYSQL_DATABASE: test
       MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_ROOT_HOST: 0.0.0.0
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 12345
     ports:
-      - "32000:3306"
+      - "3306:3306"
     volumes:
       - mysql:/var/lib/mysql
+    networks:
+      - backend
   server:
-    build:
-      dockerfile: Dockerfile
-    container_name: lab-24-docker-server
-    restart: always
+    build: https://github.com/mai-k304-web-sem-6/lab-24-docker.git
     depends_on:
       - mysql
-    ports:
-      - "5000"
+    restart: always
+    networks:
+      - backend
+
+networks:
+  backend:
 
 volumes:
   mysql:
