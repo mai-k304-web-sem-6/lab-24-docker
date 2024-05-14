@@ -20,6 +20,8 @@ services:
     build: https://github.com/mai-k304-web-sem-6/lab-24-docker.git
     depends_on:
       - mysql
+    ports:
+      - "5000:5000"
     restart: always
     networks:
       - backend
